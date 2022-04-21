@@ -12,7 +12,17 @@ const listItems = () => {
     return Item.find({});
 }
 
+const deleteOneItem = (where) => {
+    return Item.deleteOne(where);
+};
+
+const updateOneItem = (payload, where) => {
+    return Item.updateOne(where, payload);
+};
+
 module.exports = {
-        createItem: createItem,
-        listItems: listItems
+    createItem: createItem,
+    listItems: listItems,
+    deleteOneItem,
+    updateOneItem
 };
