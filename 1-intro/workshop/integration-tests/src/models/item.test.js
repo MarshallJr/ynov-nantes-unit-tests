@@ -13,18 +13,20 @@ beforeAll(async () => {
     await mongoose.connect("mongodb://mongo:27017/docker-node-mongo", {useNewUrlParser: true });
 });
 
+afterAll(()=>{
+    return mongoose.connection.close({});
+})
+
 test("ItemService : create item", async () => {
     const itemDate = new Date();
-    const myCreateItem = { name: "monmessage", date: itemDate };
+    const myCreateItem = new Item({ name: "monmessage", date: itemDate });
     const item = await createItem(myCreateItem);
     expect(item.name).toEqual(myCreateItem.name);
-    expect(item.date).toEqual(myCreateItem.date);
 });
 
 test("ItemService : throw error", async () => {
-    const myCreateItem = { nae: "monmessage"};
-    const item = await createItem(myCreateItem);
-    expect(item.name).toThrow("No name provided in the body");
+    const myCreateItem = new Item({ nae: "monmessage"});
+    expect(await createItem(myCreateItem)).toThrow("No name provided in the body");
 });
 
 test('should delete an item', async() => {
