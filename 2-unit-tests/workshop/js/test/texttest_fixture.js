@@ -2,6 +2,7 @@
 const { Shop, Item } = require("../src/gilded_rose");
 const {items} = require("../src/constants");
 
+
 const days = Number(process.argv[2]) || 2;
 const gildedRose = new Shop(items);
 
