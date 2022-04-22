@@ -3,68 +3,68 @@ const {items} = require("../src/constants");
 
 describe("Gilded Rose", function() {
 
-  // describe("Item creation", function () {
-  //
-  //   it("basic creation", function () {
-  //     const item = new Item("foo", 10, 10)
-  //     expect(item.name).toBe("foo");
-  //   });
-  //
-  //   it("legendary creation", function () {
-  //     const legendary = new Item("Sulfuras, Hand of Ragnaros", null, 10)
-  //     expect(legendary.name).toBe("Sulfuras, Hand of Ragnaros");
-  //   });
-  //
-  //   it("basic creation without quality", function () {
-  //     expect(() => {
-  //       new Item("foo", 10, null);
-  //     }).toThrow();
-  //   });
-  //
-  //   it("legendary creation without quality", function () {
-  //     const legendary = new Item("Sulfuras, Hand of Ragnaros", null, null)
-  //     expect(legendary.name).toBe("Sulfuras, Hand of Ragnaros");
-  //   });
-  //
-  //   it("basic creation without sellIn", function () {
-  //     expect(() => {
-  //       new Item("foo", null, 12);
-  //     }).toThrow();
-  //   });
-  //
-  //   it("legendary creation without sellIn", function () {
-  //     const legendary = new Item("Sulfuras, Hand of Ragnaros", null, 10)
-  //     expect(legendary.name).toBe("Sulfuras, Hand of Ragnaros");
-  //   });
-  //
-  //   it("basic creation quality = 0", function () {
-  //     const item = new Item("foo", 10, 0)
-  //     expect(item.name).toBe("foo");
-  //   });
-  //
-  //   it("basic creation quality < 0", function () {
-  //     expect(() => {
-  //       new Item("foo", 10, -2)
-  //     }).toThrow();
-  //   });
-  //
-  //   it("basic creation quality = 50", function () {
-  //     const item = new Item("foo", 10, 50)
-  //     expect(item.name).toBe("foo");
-  //   });
-  //
-  //   it("basic creation quality > 50", function () {
-  //     expect(() => {
-  //       new Item("foo", 10, 60)
-  //     }).toThrow();
-  //   });
-  //
-  //   it("legendary creation quality > 50", function () {
-  //     const legendary = new Item("Sulfuras, Hand of Ragnaros", null, 80)
-  //     expect(legendary.name).toBe("Sulfuras, Hand of Ragnaros");
-  //   });
-  //
-  // });
+  describe("Item creation", function () {
+
+    it("basic creation", function () {
+      const item = new Item("foo", 10, 10)
+      expect(item.name).toBe("foo");
+    });
+
+    it("legendary creation", function () {
+      const legendary = new Item("Sulfuras, Hand of Ragnaros", null, 10)
+      expect(legendary.name).toBe("Sulfuras, Hand of Ragnaros");
+    });
+
+    it("basic creation without quality", function () {
+      expect(() => {
+        new Item("foo", 10, null);
+      }).toThrow();
+    });
+
+    it("legendary creation without quality", function () {
+      const legendary = new Item("Sulfuras, Hand of Ragnaros", null, null)
+      expect(legendary.name).toBe("Sulfuras, Hand of Ragnaros");
+    });
+
+    it("basic creation without sellIn", function () {
+      expect(() => {
+        new Item("foo", null, 12);
+      }).toThrow();
+    });
+
+    it("legendary creation without sellIn", function () {
+      const legendary = new Item("Sulfuras, Hand of Ragnaros", null, 10)
+      expect(legendary.name).toBe("Sulfuras, Hand of Ragnaros");
+    });
+
+    it("basic creation quality = 0", function () {
+      const item = new Item("foo", 10, 0)
+      expect(item.name).toBe("foo");
+    });
+
+    it("basic creation quality < 0", function () {
+      expect(() => {
+        new Item("foo", 10, -2)
+      }).toThrow();
+    });
+
+    it("basic creation quality = 50", function () {
+      const item = new Item("foo", 10, 50)
+      expect(item.name).toBe("foo");
+    });
+
+    it("basic creation quality > 50", function () {
+      expect(() => {
+        new Item("foo", 10, 60)
+      }).toThrow();
+    });
+
+    it("legendary creation quality > 50", function () {
+      const legendary = new Item("Sulfuras, Hand of Ragnaros", null, 80)
+      expect(legendary.name).toBe("Sulfuras, Hand of Ragnaros");
+    });
+
+  });
 
   describe("Shop updateQuality", function () {
 
