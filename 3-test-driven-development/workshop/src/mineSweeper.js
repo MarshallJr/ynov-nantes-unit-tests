@@ -1,8 +1,11 @@
 class MineSweeper {
 
-    constructor(input) {
+    constructor(input, rl = null) {
         const args = input.split(' ');
-        this.isValid(args);
+
+        args[0] === '0' && args[1] === '0'
+            ? rl.close()
+            : this.isValid(args);
         this.lines = parseInt(args[0]);
         this.rows = parseInt(args[1]);
     }
@@ -22,6 +25,10 @@ class MineSweeper {
                 }
             });
         }
+    }
+
+    addLine(line) {
+
     }
 }
 
