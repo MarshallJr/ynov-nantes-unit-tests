@@ -114,7 +114,7 @@ describe("Mine Sweeper", function() {
             const index = 0
             const firstLine = ms.field[index];
             expect(firstLine).toStrictEqual([".", ".", ".", "*"])
-            const formattedRow = ms.detectMines(firstLine, index);
+            const formattedRow = ms.formatRow(firstLine, index);
             expect(formattedRow).toBe("112*")
         });
 
@@ -122,7 +122,7 @@ describe("Mine Sweeper", function() {
             const index = 1
             const line = ms.field[index];
             expect(line).toStrictEqual([".", "*", ".", "."])
-            const formattedRow = ms.detectMines(line, index);
+            const formattedRow = ms.formatRow(line, index);
             expect(formattedRow).toBe("1*21")
         });
 
@@ -130,7 +130,7 @@ describe("Mine Sweeper", function() {
             const index = 2
             const lastLine = ms.field[index];
             expect(lastLine).toStrictEqual([".", ".", ".", "."])
-            const formattedRow = ms.detectMines(lastLine, index);
+            const formattedRow = ms.formatRow(lastLine, index);
             expect(formattedRow).toBe("1110")
         });
 
