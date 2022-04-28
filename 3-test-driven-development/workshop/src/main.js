@@ -17,12 +17,13 @@ let fields = [];
 let index = 1
 
 rl.on('close', function () {
+    console.log("");
     fields.forEach((field, index) => {
         console.log(`Field #${index+1}:`)
         field.displayOutput();
         console.log("")
     })
-    console.log('\nBYE BYE !!!');
+    console.log('BYE BYE !!!');
     process.exit(0);
 });
 
