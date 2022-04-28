@@ -36,25 +36,21 @@
 ===================================
 ## J.3 le TDD
 
+[TDD](./3.TDD.md)
+
 ### Cours
     - C'est quoi le TDD
     - Pourquoi le TDD, à quoi ça sert
     - Comment
-    - Behat
+
 ### Workshop
-    - Workshop, reprise des tests fait sur gilded rose.
+    - Workshop, minesweeper
 
 ===================================
-## J.4 les mock/ les spy
+## J.4 BDD
 ### Cours
-    - C'est quoi un Mock
-    - A quoi ça sert Mock
-    - Comment on fait un Mock
-    - Comment l'utilise Mock
-
-    - C'est quoi un Spy
-    - A quoi ça sert Spy
-    - Comment on fait un Spy
-    - Comment l'utilise Spy
+    - Behat
+    - TBA
 ### Workshop
     - Workshop
+    - TBA
