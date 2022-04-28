@@ -4,6 +4,7 @@ const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout
 });
+
 console.log("");
 console.log("--------------------------------------------------------------------------------------------------------");
 console.log("|                                          REGLE DU JEU                                                |");
@@ -45,9 +46,6 @@ function displayQuestion () {
         let row = 1;
 
         displayLineTemplate(field, row)
-
-        // displayQuestion();
-        // rl.close();
     });
 }
 

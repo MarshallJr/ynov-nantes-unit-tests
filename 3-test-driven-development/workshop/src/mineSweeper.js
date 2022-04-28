@@ -2,7 +2,6 @@ class MineSweeper {
 
     constructor(input, rl = null) {
         const args = input.split(' ');
-
         args[0] === '0' && args[1] === '0'
             ? rl.close()
             : this.isValid(args);
@@ -11,6 +10,9 @@ class MineSweeper {
         this.field = [];
     }
 
+    /*
+     * Check if the args received from the command line are corrects
+     */
     isValid(args) {
         // check if we have exactly 2 values
         if (args.length !== 2) {
@@ -28,6 +30,9 @@ class MineSweeper {
         }
     }
 
+    /*
+     * Add one line to the MineSweeper field
+     */
     addLine(args) {
         const line = args.split('');
         // check if there is correct amount of fields provided
@@ -38,48 +43,57 @@ class MineSweeper {
         this.field.push(line);
     }
 
+    /*
+     * Return true if the cell contains a mine
+     */
     isAMine(cell) {
         return cell === "*";
     }
 
-    detectMines(row, rowIndex) {
+    /*
+     * Calculate the mines around each cell from a row
+     */
+    detectMines(rowIndex, cellIndex, mines) {
+        let minesAround = mines
+        const row = this.field[rowIndex].filter((c, index) => index >= cellIndex-1 && index <= cellIndex+1);
+        row.forEach((c) => {
+            if (this.isAMine(c)) minesAround++;
+        })
+        return minesAround;
+    }
+
+    /*
+     * Transform a row into a character chain, with number of mines instead of "."
+     */
+    formatRow(row, rowIndex) {
         let formattedRow = []
         row.forEach((cell, _index) => {
             let nbMines = 0;
             // previous row
             if (rowIndex-1 >= 0) {
-                const previousRow = this.field[rowIndex-1].filter((c, index) => index >= _index-1 && index <= _index+1);
-                previousRow.forEach((c) => {
-                    if (this.isAMine(c)) nbMines++;
-                })
+                nbMines = this.detectMines(rowIndex-1, _index, nbMines);
             }
             //currentRow
-            const currentRow = row.filter((c, index) => index >= _index-1 && index <= _index+1);
-            currentRow.forEach((c) => {
-                if (c !== cell && this.isAMine(c)) nbMines++;
-            })
+            nbMines = this.detectMines(rowIndex, _index, nbMines);
             // next row
             if (rowIndex+1 <= this.rows-1) {
-                const nextRow = this.field[rowIndex+1].filter((c, index) => index >= _index-1 && index <= _index+1);
-                nextRow.forEach((c) => {
-                    if (this.isAMine(c)) nbMines++;
-                })
+                nbMines = this.detectMines(rowIndex+1, _index, nbMines);
             }
 
             this.isAMine(cell) ? formattedRow.push("*") : formattedRow.push(nbMines);
-            // this.field[rowIndex] = formattedRow;
         });
-        // this.field[rowIndex] = formattedRow;
-        // return formattedRow;
-        const stringify = formattedRow.reduce((prev, current) => {
+
+        return formattedRow.reduce((prev, current) => {
             return prev+current.toString();
         }, "")
-        return stringify;
     }
 
+    /*
+     * Display the field with each row formatted
+     */
     displayOutput() {
         this.field.forEach((row, index) => {
-            console.log(this.detectMines(row, index));
+            console.log(this.formatRow(row, index));
         })
     }
 }
