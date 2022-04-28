@@ -21,7 +21,7 @@ rl.on('close', function () {
 
 function displayQuestion () {
     rl.question(`Game#${index}: Nombre de lignes et de colonnes ? `, function (nbLinesAndRows) {
-        const field = new MineSweeper(nbLinesAndRows);
+        const field = new MineSweeper(nbLinesAndRows, rl);
         fields.push(field);
         index++;
 
