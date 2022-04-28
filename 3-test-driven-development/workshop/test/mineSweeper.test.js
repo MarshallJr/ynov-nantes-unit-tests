@@ -1,4 +1,5 @@
 const MineSweeper = require("../src/mineSweeper");
+const fs = require("../src/fs");
 
 describe("Mine Sweeper", function() {
 
@@ -134,6 +135,17 @@ describe("Mine Sweeper", function() {
             expect(formattedRow).toBe("1110")
         });
 
+    })
+
+    describe("feature lecture fichier", function () {
+
+        it("pass text content to MineSweeper", function() {
+            const file = "./assets/inputs.txt";
+            const content = fs.readInput(file);
+            const ms = new MineSweeper(content);
+            expect(ms.rows).toBe(4);
+            expect(ms.columns).toBe(4);
+        });
     })
 
 
