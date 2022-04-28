@@ -37,6 +37,7 @@ class MineSweeper {
         if (!args.match(regex)) throw "You must provide only * (mine) or . (empty) characters";
         this.field.push(line);
     }
+
 }
 
 module.exports = MineSweeper;
