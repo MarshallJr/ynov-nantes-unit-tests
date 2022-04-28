@@ -15,17 +15,33 @@ let fields = [];
 let index = 1
 
 rl.on('close', function () {
+    console.log(fields)
     console.log('\nBYE BYE !!!');
     process.exit(0);
 });
+
+function displayLineTemplate(field, row) {
+    if (row <= field.rows) {
+        rl.question(`row#${row}: `, function (lineTemplate) {
+            field.addLine(lineTemplate);
+            row++;
+            displayLineTemplate(field, row)
+        })
+    } else {
+        displayQuestion();
+    }
+}
 
 function displayQuestion () {
     rl.question(`Game#${index}: Nombre de lignes et de colonnes ? `, function (nbLinesAndRows) {
         const field = new MineSweeper(nbLinesAndRows, rl);
         fields.push(field);
         index++;
+        let row = 1;
 
-        displayQuestion();
+        displayLineTemplate(field, row)
+
+        // displayQuestion();
         // rl.close();
     });
 }

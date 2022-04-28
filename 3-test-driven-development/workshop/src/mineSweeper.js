@@ -30,8 +30,10 @@ class MineSweeper {
 
     addLine(args) {
         const line = args.split('');
-        if (line.length !== this.columns) throw "You must provide * or . for each column";
-        const regex = /[\*\.]{4}/g;
+        // check if there is correct amount of fields provided
+        if (line.length !== this.columns) throw "You must provide * or . for "+this.columns+" columns";
+        const regex = new RegExp('[\\*\\.]{'+this.columns+'}')
+        // check if the line only contains * or .
         if (!args.match(regex)) throw "You must provide only * (mine) or . (empty) characters";
         this.field.push(line);
     }
