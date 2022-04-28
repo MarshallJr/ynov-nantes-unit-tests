@@ -1,5 +1,4 @@
-import MineSweeper from "../src/mineSweeper";
-
+const MineSweeper = require("../src/mineSweeper");
 
 describe("Mine Sweeper", function() {
 
@@ -7,6 +6,13 @@ describe("Mine Sweeper", function() {
 
         it("only one args", function() {
             const input = "4";
+            expect(() => {
+                new MineSweeper(input);
+            }).toThrow();
+        });
+
+        it("more than two args", function() {
+            const input = "4 5 6";
             expect(() => {
                 new MineSweeper(input);
             }).toThrow();

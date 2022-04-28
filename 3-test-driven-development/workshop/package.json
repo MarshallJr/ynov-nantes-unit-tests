@@ -1,0 +1,15 @@
+{
+  "name": "mine-sweeper",
+  "version": "1.0.0",
+  "description": "MineSweeper in Javascript",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
+  },
+  "devDependencies": {
+    "jest": "^24.9.0"
+  },
+  "author": "Lucas Redois",
+  "license": "ISC"
+}
