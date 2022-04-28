@@ -6,8 +6,9 @@ class MineSweeper {
         args[0] === '0' && args[1] === '0'
             ? rl.close()
             : this.isValid(args);
-        this.lines = parseInt(args[0]);
-        this.rows = parseInt(args[1]);
+        this.rows = parseInt(args[0]);
+        this.columns = parseInt(args[1]);
+        this.field = [];
     }
 
     isValid(args) {
@@ -27,8 +28,12 @@ class MineSweeper {
         }
     }
 
-    addLine(line) {
-
+    addLine(args) {
+        const line = args.split('');
+        if (line.length !== this.columns) throw "You must provide * or . for each column";
+        const regex = /[\*\.]{4}/g;
+        if (!args.match(regex)) throw "You must provide only * (mine) or . (empty) characters";
+        this.field.push(line);
     }
 }
 

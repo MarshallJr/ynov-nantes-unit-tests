@@ -63,10 +63,10 @@ describe("Mine Sweeper", function() {
             ms = new MineSweeper(input);
         })
 
-        it("char other than * or .", function() {
+        it("correct input", function() {
             const lineInput = "*...";
             ms.addLine(lineInput);
-            expect(ms.field[0]).toBe(['*', '.', '.', '.'])
+            expect(ms.field[0]).toStrictEqual(["*", ".", ".", "."])
         });
 
         it("no line input", function() {
