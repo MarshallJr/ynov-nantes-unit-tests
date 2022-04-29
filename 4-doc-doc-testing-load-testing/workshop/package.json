@@ -5,14 +5,27 @@
   "main": "index.js",
   "scripts": {
     "start": "node server.js",
-    "start:dev": "nodemon server.js"
+    "start:dev": "nodemon server.js",
+    "test-e2e": "codeceptjs run",
+    "test-integration": "",
+    "test-unitaire": ""
   },
+  "keywords": [
+    "e2e",
+    "codeceptjs"
+  ],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
-    "nodemon": "^1.18.9",
-    "mongoose": "^5.4.1"
+    "jest": "^28.0.2",
+    "mongoose": "^5.4.1",
+    "nodemon": "^1.18.9"
+  },
+  "devDependencies": {
+    "codeceptjs": "^3.3.2",
+    "playwright": "^1.21.1",
+    "webdriverio": "^7.19.5"
   }
 }
