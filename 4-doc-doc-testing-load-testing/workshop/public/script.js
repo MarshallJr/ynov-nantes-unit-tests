@@ -60,3 +60,19 @@ function doneTODO(event) {
   })
   .then(() => window.location.reload());
 }
+
+function formatTodoText(todo) {
+  return "*" + todo + "*";
+}
+
+function hash(msg) {
+  var hash = 0;
+  for (var i = 0; i < msg.length; i++) {
+    var char = msg.charCodeAt(i);
+    hash = (hash << 5) - hash + char;
+    hash = hash & hash;
+  }
+  return hash;
+}
+
+module.exports = { formatTodoText, hash };
