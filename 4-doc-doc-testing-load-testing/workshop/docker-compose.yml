@@ -1,5 +1,6 @@
 version: '3'
 services:
+
   web:
     image: "docker-node-mongo-todo-app"
     build: .
@@ -8,7 +9,17 @@ services:
       - "5000:5000"
     depends_on:
       - "mongo"
+    networks:
+      - "project"
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+
   mongo:
-    image: "mongo"
+    image: "mongo:4.4.6"
     ports:
       - "27017:27017"
+    networks:
+      - "project"
+networks:
+  project:
